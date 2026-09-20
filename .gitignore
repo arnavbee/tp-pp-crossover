@@ -1,0 +1,12 @@
+# Per-cell Vidur output, 68 MB and regenerable from sweep.py.
+# results.jsonl + makespan.jsonl are the data and are enough to rebuild every figure.
+runs/
+
+# Superseded by the 20:55 restart; kept on disk, not in history. See CAVEATS.md #1.
+*.bad-range
+*.bad-range-*
+
+__pycache__/
+*.pyc
+.venv/
+.DS_Store

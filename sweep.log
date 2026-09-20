@@ -1,0 +1,486 @@
+dropped as out of predictor range (> 32768 tokens): [(8192, 0.25), (16384, 0.25)]
+240 cells, 0 already done
+[1/240] tp1_pp8_a100_dgx_pre512_pd32_qps1
+    {'wall_s': 1230.7, 'e2e_p50': 2.0545, 'ttft_p99': 0.5021, 'tbt_p99': 0.1859}
+[2/240] tp1_pp8_a100_dgx_pre512_pd32_qps2
+    {'wall_s': 12.1, 'e2e_p50': 2.5615, 'ttft_p99': 0.8677, 'tbt_p99': 0.2123}
+[3/240] tp1_pp8_a100_dgx_pre512_pd32_qps4
+    {'wall_s': 10.9, 'e2e_p50': 4.2172, 'ttft_p99': 0.9875, 'tbt_p99': 0.2662}
+[4/240] tp1_pp8_a100_dgx_pre512_pd4_qps1
+    {'wall_s': 13.5, 'e2e_p50': 16.2808, 'ttft_p99': 0.9274, 'tbt_p99': 0.1341}
+[5/240] tp1_pp8_a100_dgx_pre512_pd4_qps2
+    {'wall_s': 11.9, 'e2e_p50': 21.7168, 'ttft_p99': 1.0076, 'tbt_p99': 0.1774}
+[6/240] tp1_pp8_a100_dgx_pre512_pd4_qps4
+    {'wall_s': 11.2, 'e2e_p50': 24.0474, 'ttft_p99': 2.3118, 'tbt_p99': 0.2529}
+[7/240] tp1_pp8_a100_dgx_pre512_pd0.25_qps1
+    {'wall_s': 21.6, 'e2e_p50': 222.0344, 'ttft_p99': 1.139, 'tbt_p99': 0.1138}
+[8/240] tp1_pp8_a100_dgx_pre512_pd0.25_qps2
+    {'wall_s': 20.5, 'e2e_p50': 219.9058, 'ttft_p99': 1.0133, 'tbt_p99': 0.1125}
+[9/240] tp1_pp8_a100_dgx_pre512_pd0.25_qps4
+    {'wall_s': 21.3, 'e2e_p50': 217.3574, 'ttft_p99': 2.3118, 'tbt_p99': 0.11}
+[10/240] tp1_pp8_a100_dgx_pre2048_pd32_qps1
+    {'wall_s': 15.8, 'e2e_p50': 16.6938, 'ttft_p99': 2.189, 'tbt_p99': 0.298}
+[11/240] tp1_pp8_a100_dgx_pre2048_pd32_qps2
+    {'wall_s': 12.6, 'e2e_p50': 25.5666, 'ttft_p99': 2.3556, 'tbt_p99': 0.3743}
+[12/240] tp1_pp8_a100_dgx_pre2048_pd32_qps4
+    {'wall_s': 11.7, 'e2e_p50': 19.7413, 'ttft_p99': 2.8924, 'tbt_p99': 0.379}
+[13/240] tp1_pp8_a100_dgx_pre2048_pd4_qps1
+    {'wall_s': 15.2, 'e2e_p50': 92.2336, 'ttft_p99': 3.2503, 'tbt_p99': 0.2424}
+[14/240] tp1_pp8_a100_dgx_pre2048_pd4_qps2
+    {'wall_s': 14.5, 'e2e_p50': 78.7124, 'ttft_p99': 3.4019, 'tbt_p99': 0.1884}
+[15/240] tp1_pp8_a100_dgx_pre2048_pd4_qps4
+    {'wall_s': 14.1, 'e2e_p50': 66.8769, 'ttft_p99': 2.9225, 'tbt_p99': 0.1463}
+[16/240] tp1_pp8_a100_dgx_pre2048_pd0.25_qps1
+    {'wall_s': 52.3, 'e2e_p50': 1013.9932, 'ttft_p99': 3.2503, 'tbt_p99': 0.1271}
+[17/240] tp1_pp8_a100_dgx_pre2048_pd0.25_qps2
+    {'wall_s': 49.3, 'e2e_p50': 999.848, 'ttft_p99': 3.4019, 'tbt_p99': 0.124}
+[18/240] tp1_pp8_a100_dgx_pre2048_pd0.25_qps4
+    {'wall_s': 49.0, 'e2e_p50': 988.0156, 'ttft_p99': 2.9225, 'tbt_p99': 0.1215}
+[19/240] tp1_pp8_a100_dgx_pre8192_pd32_qps1
+    {'wall_s': 13.7, 'e2e_p50': 86.4003, 'ttft_p99': 13.4289, 'tbt_p99': 0.4526}
+[20/240] tp1_pp8_a100_dgx_pre8192_pd32_qps2
+    {'wall_s': 13.4, 'e2e_p50': 107.5229, 'ttft_p99': 61.1717, 'tbt_p99': 0.442}
+[21/240] tp1_pp8_a100_dgx_pre8192_pd32_qps4
+    {'wall_s': 13.8, 'e2e_p50': 117.4791, 'ttft_p99': 86.8264, 'tbt_p99': 0.4307}
+[22/240] tp1_pp8_a100_dgx_pre8192_pd4_qps1
+    {'wall_s': 26.9, 'e2e_p50': 322.425, 'ttft_p99': 13.4289, 'tbt_p99': 0.1723}
+[23/240] tp1_pp8_a100_dgx_pre8192_pd4_qps2
+    {'wall_s': 24.1, 'e2e_p50': 343.5421, 'ttft_p99': 61.1717, 'tbt_p99': 0.1702}
+[24/240] tp1_pp8_a100_dgx_pre8192_pd4_qps4
+    {'wall_s': 24.5, 'e2e_p50': 353.3529, 'ttft_p99': 86.8264, 'tbt_p99': 0.1688}
+[25/240] tp1_pp8_a100_dgx_pre16384_pd32_qps1
+    {'wall_s': 16.7, 'e2e_p50': 255.9397, 'ttft_p99': 193.8574, 'tbt_p99': 0.3722}
+[26/240] tp1_pp8_a100_dgx_pre16384_pd32_qps2
+    {'wall_s': 17.3, 'e2e_p50': 277.7773, 'ttft_p99': 241.7119, 'tbt_p99': 0.3641}
+[27/240] tp1_pp8_a100_dgx_pre16384_pd32_qps4
+    {'wall_s': 16.5, 'e2e_p50': 285.3745, 'ttft_p99': 263.7534, 'tbt_p99': 0.3579}
+[28/240] tp1_pp8_a100_dgx_pre16384_pd4_qps1
+    {'wall_s': 44.6, 'e2e_p50': 756.7636, 'ttft_p99': 673.3032, 'tbt_p99': 0.9965}
+[29/240] tp1_pp8_a100_dgx_pre16384_pd4_qps2
+    {'wall_s': 46.1, 'e2e_p50': 783.0828, 'ttft_p99': 727.9754, 'tbt_p99': 0.9968}
+[30/240] tp1_pp8_a100_dgx_pre16384_pd4_qps4
+    {'wall_s': 46.7, 'e2e_p50': 791.5196, 'ttft_p99': 751.0103, 'tbt_p99': 0.9335}
+[31/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd32_qps1
+nohup: setsid: No such file or directory
+dropped as out of predictor range (> 32768 tokens): [(8192, 0.25), (16384, 0.25)]
+240 cells, 30 already done
+[31/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd32_qps1
+    {'wall_s': 356.2, 'e2e_p50': 2.1282, 'ttft_p99': 0.494, 'tbt_p99': 0.1947}
+[32/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd32_qps2
+    {'wall_s': 7.9, 'e2e_p50': 2.7024, 'ttft_p99': 0.921, 'tbt_p99': 0.214}
+[33/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd32_qps4
+    {'wall_s': 7.1, 'e2e_p50': 5.3063, 'ttft_p99': 1.0847, 'tbt_p99': 0.3365}
+[34/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd4_qps1
+    {'wall_s': 8.8, 'e2e_p50': 16.6624, 'ttft_p99': 0.9669, 'tbt_p99': 0.1401}
+[35/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd4_qps2
+    {'wall_s': 7.7, 'e2e_p50': 23.3902, 'ttft_p99': 1.0822, 'tbt_p99': 0.1893}
+[36/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd4_qps4
+    {'wall_s': 7.2, 'e2e_p50': 24.0811, 'ttft_p99': 1.4127, 'tbt_p99': 0.2562}
+[37/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd0.25_qps1
+    {'wall_s': 14.0, 'e2e_p50': 224.5891, 'ttft_p99': 1.209, 'tbt_p99': 0.1156}
+[38/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd0.25_qps2
+    {'wall_s': 13.3, 'e2e_p50': 222.1503, 'ttft_p99': 1.4794, 'tbt_p99': 0.1141}
+[39/240] tp1_pp8_a100_pairwise_nvlink_pre512_pd0.25_qps4
+    {'wall_s': 12.5, 'e2e_p50': 218.0836, 'ttft_p99': 1.4127, 'tbt_p99': 0.1106}
+[40/240] tp1_pp8_a100_pairwise_nvlink_pre2048_pd32_qps1
+    {'wall_s': 7.7, 'e2e_p50': 18.3423, 'ttft_p99': 2.3978, 'tbt_p99': 0.3154}
+[41/240] tp1_pp8_a100_pairwise_nvlink_pre2048_pd32_qps2
+    {'wall_s': 7.2, 'e2e_p50': 27.043, 'ttft_p99': 2.5086, 'tbt_p99': 0.3997}
+[42/240] tp1_pp8_a100_pairwise_nvlink_pre2048_pd32_qps4
+    {'wall_s': 7.0, 'e2e_p50': 20.3088, 'ttft_p99': 3.1733, 'tbt_p99': 0.4019}
+[43/240] tp1_pp8_a100_pairwise_nvlink_pre2048_pd4_qps1
+    {'wall_s': 8.9, 'e2e_p50': 94.7222, 'ttft_p99': 2.6057, 'tbt_p99': 0.2493}
+[44/240] tp1_pp8_a100_pairwise_nvlink_pre2048_pd4_qps2
+    {'wall_s': 8.3, 'e2e_p50': 79.76, 'ttft_p99': 3.7134, 'tbt_p99': 0.1908}
+[45/240] tp1_pp8_a100_pairwise_nvlink_pre2048_pd4_qps4
+    {'wall_s': 8.3, 'e2e_p50': 67.6265, 'ttft_p99': 3.1733, 'tbt_p99': 0.1479}
+[46/240] tp1_pp8_a100_pairwise_nvlink_pre2048_pd0.25_qps1
+    {'wall_s': 30.3, 'e2e_p50': 1019.7039, 'ttft_p99': 2.6057, 'tbt_p99': 0.1279}
+[47/240] tp1_pp8_a100_pairwise_nvlink_pre2048_pd0.25_qps2
+    {'wall_s': 30.1, 'e2e_p50': 1004.2704, 'ttft_p99': 3.7134, 'tbt_p99': 0.1246}
+[48/240] tp1_pp8_a100_pairwise_nvlink_pre2048_pd0.25_qps4
+    {'wall_s': 38.0, 'e2e_p50': 991.8285, 'ttft_p99': 3.1733, 'tbt_p99': 0.122}
+[49/240] tp1_pp8_a100_pairwise_nvlink_pre8192_pd32_qps1
+    {'wall_s': 23.3, 'e2e_p50': 91.5373, 'ttft_p99': 17.1462, 'tbt_p99': 0.4771}
+[50/240] tp1_pp8_a100_pairwise_nvlink_pre8192_pd32_qps2
+    {'wall_s': 13.2, 'e2e_p50': 113.9188, 'ttft_p99': 67.3776, 'tbt_p99': 0.4654}
+[51/240] tp1_pp8_a100_pairwise_nvlink_pre8192_pd32_qps4
+    {'wall_s': 14.5, 'e2e_p50': 123.3315, 'ttft_p99': 92.6229, 'tbt_p99': 0.452}
+[52/240] tp1_pp8_a100_pairwise_nvlink_pre8192_pd4_qps1
+    {'wall_s': 23.8, 'e2e_p50': 328.2913, 'ttft_p99': 17.1462, 'tbt_p99': 0.1752}
+[53/240] tp1_pp8_a100_pairwise_nvlink_pre8192_pd4_qps2
+    {'wall_s': 24.9, 'e2e_p50': 350.6619, 'ttft_p99': 67.3776, 'tbt_p99': 0.1735}
+[54/240] tp1_pp8_a100_pairwise_nvlink_pre8192_pd4_qps4
+    {'wall_s': 26.1, 'e2e_p50': 359.9136, 'ttft_p99': 92.6229, 'tbt_p99': 0.1718}
+[55/240] tp1_pp8_a100_pairwise_nvlink_pre16384_pd32_qps1
+    {'wall_s': 15.3, 'e2e_p50': 269.2391, 'ttft_p99': 207.0347, 'tbt_p99': 0.3876}
+[56/240] tp1_pp8_a100_pairwise_nvlink_pre16384_pd32_qps2
+    {'wall_s': 17.4, 'e2e_p50': 291.005, 'ttft_p99': 254.7521, 'tbt_p99': 0.3792}
+[57/240] tp1_pp8_a100_pairwise_nvlink_pre16384_pd32_qps4
+    {'wall_s': 20.0, 'e2e_p50': 298.4562, 'ttft_p99': 276.8661, 'tbt_p99': 0.373}
+[58/240] tp1_pp8_a100_pairwise_nvlink_pre16384_pd4_qps1
+    {'wall_s': 52.4, 'e2e_p50': 771.362, 'ttft_p99': 688.8333, 'tbt_p99': 1.0099}
+[59/240] tp1_pp8_a100_pairwise_nvlink_pre16384_pd4_qps2
+    {'wall_s': 47.0, 'e2e_p50': 798.5781, 'ttft_p99': 743.3735, 'tbt_p99': 1.0099}
+[60/240] tp1_pp8_a100_pairwise_nvlink_pre16384_pd4_qps4
+    {'wall_s': 52.7, 'e2e_p50': 800.6809, 'ttft_p99': 762.0326, 'tbt_p99': 0.9398}
+[61/240] tp2_pp4_a100_dgx_pre512_pd32_qps1
+    {'wall_s': 1770.4, 'e2e_p50': 1.2659, 'ttft_p99': 0.4767, 'tbt_p99': 0.1067}
+[62/240] tp2_pp4_a100_dgx_pre512_pd32_qps2
+    {'wall_s': 7.6, 'e2e_p50': 1.42, 'ttft_p99': 0.5241, 'tbt_p99': 0.1337}
+[63/240] tp2_pp4_a100_dgx_pre512_pd32_qps4
+    {'wall_s': 7.2, 'e2e_p50': 1.9924, 'ttft_p99': 0.5735, 'tbt_p99': 0.1449}
+[64/240] tp2_pp4_a100_dgx_pre512_pd4_qps1
+    {'wall_s': 7.7, 'e2e_p50': 9.3279, 'ttft_p99': 0.4685, 'tbt_p99': 0.0788}
+[65/240] tp2_pp4_a100_dgx_pre512_pd4_qps2
+    {'wall_s': 7.4, 'e2e_p50': 10.9011, 'ttft_p99': 0.5494, 'tbt_p99': 0.0905}
+[66/240] tp2_pp4_a100_dgx_pre512_pd4_qps4
+    {'wall_s': 6.9, 'e2e_p50': 14.6368, 'ttft_p99': 0.5792, 'tbt_p99': 0.1179}
+[67/240] tp2_pp4_a100_dgx_pre512_pd0.25_qps1
+    {'wall_s': 9.6, 'e2e_p50': 145.102, 'ttft_p99': 0.5823, 'tbt_p99': 0.0729}
+[68/240] tp2_pp4_a100_dgx_pre512_pd0.25_qps2
+    {'wall_s': 9.3, 'e2e_p50': 145.6087, 'ttft_p99': 0.6801, 'tbt_p99': 0.0739}
+[69/240] tp2_pp4_a100_dgx_pre512_pd0.25_qps4
+    {'wall_s': 9.1, 'e2e_p50': 145.1569, 'ttft_p99': 0.8174, 'tbt_p99': 0.0735}
+[70/240] tp2_pp4_a100_dgx_pre2048_pd32_qps1
+    {'wall_s': 7.4, 'e2e_p50': 7.8832, 'ttft_p99': 1.275, 'tbt_p99': 0.1343}
+[71/240] tp2_pp4_a100_dgx_pre2048_pd32_qps2
+    {'wall_s': 6.9, 'e2e_p50': 11.7143, 'ttft_p99': 1.7468, 'tbt_p99': 0.191}
+[72/240] tp2_pp4_a100_dgx_pre2048_pd32_qps4
+    {'wall_s': 6.8, 'e2e_p50': 15.0207, 'ttft_p99': 2.6182, 'tbt_p99': 0.2165}
+[73/240] tp2_pp4_a100_dgx_pre2048_pd4_qps1
+    {'wall_s': 7.8, 'e2e_p50': 58.1927, 'ttft_p99': 1.2969, 'tbt_p99': 0.1173}
+[74/240] tp2_pp4_a100_dgx_pre2048_pd4_qps2
+    {'wall_s': 7.4, 'e2e_p50': 56.8655, 'ttft_p99': 2.3526, 'tbt_p99': 0.142}
+[75/240] tp2_pp4_a100_dgx_pre2048_pd4_qps4
+    {'wall_s': 7.3, 'e2e_p50': 48.3645, 'ttft_p99': 2.6182, 'tbt_p99': 0.1101}
+[76/240] tp2_pp4_a100_dgx_pre2048_pd0.25_qps1
+    {'wall_s': 16.4, 'e2e_p50': 730.9627, 'ttft_p99': 2.6818, 'tbt_p99': 0.0905}
+[77/240] tp2_pp4_a100_dgx_pre2048_pd0.25_qps2
+    {'wall_s': 15.7, 'e2e_p50': 723.8727, 'ttft_p99': 2.3526, 'tbt_p99': 0.0899}
+[78/240] tp2_pp4_a100_dgx_pre2048_pd0.25_qps4
+    {'wall_s': 15.8, 'e2e_p50': 715.6963, 'ttft_p99': 2.6182, 'tbt_p99': 0.0882}
+[79/240] tp2_pp4_a100_dgx_pre8192_pd32_qps1
+    {'wall_s': 7.3, 'e2e_p50': 71.6507, 'ttft_p99': 19.8411, 'tbt_p99': 0.2548}
+[80/240] tp2_pp4_a100_dgx_pre8192_pd32_qps2
+    {'wall_s': 7.3, 'e2e_p50': 91.7621, 'ttft_p99': 71.5926, 'tbt_p99': 0.2466}
+[81/240] tp2_pp4_a100_dgx_pre8192_pd32_qps4
+    {'wall_s': 7.5, 'e2e_p50': 113.8473, 'ttft_p99': 98.9857, 'tbt_p99': 0.2448}
+[82/240] tp2_pp4_a100_dgx_pre8192_pd4_qps1
+    {'wall_s': 9.4, 'e2e_p50': 257.4713, 'ttft_p99': 22.9262, 'tbt_p99': 0.1391}
+[83/240] tp2_pp4_a100_dgx_pre8192_pd4_qps2
+    {'wall_s': 9.3, 'e2e_p50': 278.6953, 'ttft_p99': 75.5794, 'tbt_p99': 0.1366}
+[84/240] tp2_pp4_a100_dgx_pre8192_pd4_qps4
+    {'wall_s': 9.3, 'e2e_p50': 291.089, 'ttft_p99': 102.9057, 'tbt_p99': 0.1361}
+[85/240] tp2_pp4_a100_dgx_pre16384_pd32_qps1
+    {'wall_s': 7.9, 'e2e_p50': 223.1773, 'ttft_p99': 182.1908, 'tbt_p99': 0.2874}
+[86/240] tp2_pp4_a100_dgx_pre16384_pd32_qps2
+    {'wall_s': 7.9, 'e2e_p50': 265.4078, 'ttft_p99': 235.4366, 'tbt_p99': 0.284}
+[87/240] tp2_pp4_a100_dgx_pre16384_pd32_qps4
+    {'wall_s': 7.9, 'e2e_p50': 277.3821, 'ttft_p99': 261.73, 'tbt_p99': 0.282}
+[88/240] tp2_pp4_a100_dgx_pre16384_pd4_qps1
+    {'wall_s': 14.0, 'e2e_p50': 601.8312, 'ttft_p99': 543.4533, 'tbt_p99': 0.6431}
+[89/240] tp2_pp4_a100_dgx_pre16384_pd4_qps2
+    {'wall_s': 14.3, 'e2e_p50': 631.0806, 'ttft_p99': 601.174, 'tbt_p99': 0.5854}
+[90/240] tp2_pp4_a100_dgx_pre16384_pd4_qps4
+    {'wall_s': 14.3, 'e2e_p50': 653.5348, 'ttft_p99': 634.7766, 'tbt_p99': 0.7363}
+[91/240] tp2_pp4_a100_pairwise_nvlink_pre512_pd32_qps1
+    {'wall_s': 1136.7, 'e2e_p50': 1.2555, 'ttft_p99': 0.3925, 'tbt_p99': 0.1072}
+[92/240] tp2_pp4_a100_pairwise_nvlink_pre512_pd32_qps2
+    {'wall_s': 7.8, 'e2e_p50': 1.4225, 'ttft_p99': 0.5453, 'tbt_p99': 0.1363}
+[93/240] tp2_pp4_a100_pairwise_nvlink_pre512_pd32_qps4
+    {'wall_s': 7.0, 'e2e_p50': 2.0586, 'ttft_p99': 0.5944, 'tbt_p99': 0.1341}
+[94/240] tp2_pp4_a100_pairwise_nvlink_pre512_pd4_qps1
+    {'wall_s': 8.0, 'e2e_p50': 9.1762, 'ttft_p99': 0.5767, 'tbt_p99': 0.0779}
+[95/240] tp2_pp4_a100_pairwise_nvlink_pre512_pd4_qps2
+    {'wall_s': 8.5, 'e2e_p50': 10.8674, 'ttft_p99': 0.5688, 'tbt_p99': 0.0905}
+[96/240] tp2_pp4_a100_pairwise_nvlink_pre512_pd4_qps4
+    {'wall_s': 7.8, 'e2e_p50': 14.9471, 'ttft_p99': 0.5896, 'tbt_p99': 0.1214}
+[97/240] tp2_pp4_a100_pairwise_nvlink_pre512_pd0.25_qps1
+    {'wall_s': 12.5, 'e2e_p50': 146.9529, 'ttft_p99': 0.6348, 'tbt_p99': 0.0732}
+[98/240] tp2_pp4_a100_pairwise_nvlink_pre512_pd0.25_qps2
+    {'wall_s': 10.1, 'e2e_p50': 149.0705, 'ttft_p99': 0.562, 'tbt_p99': 0.0753}
+[99/240] tp2_pp4_a100_pairwise_nvlink_pre512_pd0.25_qps4
+    {'wall_s': 10.5, 'e2e_p50': 147.3199, 'ttft_p99': 0.598, 'tbt_p99': 0.0747}
+[100/240] tp2_pp4_a100_pairwise_nvlink_pre2048_pd32_qps1
+    {'wall_s': 9.0, 'e2e_p50': 7.976, 'ttft_p99': 1.335, 'tbt_p99': 0.144}
+[101/240] tp2_pp4_a100_pairwise_nvlink_pre2048_pd32_qps2
+    {'wall_s': 8.9, 'e2e_p50': 12.3425, 'ttft_p99': 1.8871, 'tbt_p99': 0.1953}
+[102/240] tp2_pp4_a100_pairwise_nvlink_pre2048_pd32_qps4
+    {'wall_s': 8.8, 'e2e_p50': 15.4334, 'ttft_p99': 2.7306, 'tbt_p99': 0.2227}
+[103/240] tp2_pp4_a100_pairwise_nvlink_pre2048_pd4_qps1
+    {'wall_s': 8.9, 'e2e_p50': 59.7938, 'ttft_p99': 1.3265, 'tbt_p99': 0.1203}
+[104/240] tp2_pp4_a100_pairwise_nvlink_pre2048_pd4_qps2
+    {'wall_s': 8.2, 'e2e_p50': 56.8023, 'ttft_p99': 1.9509, 'tbt_p99': 0.1425}
+[105/240] tp2_pp4_a100_pairwise_nvlink_pre2048_pd4_qps4
+    {'wall_s': 8.3, 'e2e_p50': 48.9881, 'ttft_p99': 2.7319, 'tbt_p99': 0.1113}
+[106/240] tp2_pp4_a100_pairwise_nvlink_pre2048_pd0.25_qps1
+    {'wall_s': 20.1, 'e2e_p50': 742.0158, 'ttft_p99': 2.7802, 'tbt_p99': 0.0921}
+[107/240] tp2_pp4_a100_pairwise_nvlink_pre2048_pd0.25_qps2
+    {'wall_s': 18.8, 'e2e_p50': 734.2459, 'ttft_p99': 1.9509, 'tbt_p99': 0.0912}
+[108/240] tp2_pp4_a100_pairwise_nvlink_pre2048_pd0.25_qps4
+    {'wall_s': 18.5, 'e2e_p50': 726.9388, 'ttft_p99': 2.7319, 'tbt_p99': 0.0895}
+[109/240] tp2_pp4_a100_pairwise_nvlink_pre8192_pd32_qps1
+    {'wall_s': 7.9, 'e2e_p50': 73.7994, 'ttft_p99': 22.1826, 'tbt_p99': 0.26}
+[110/240] tp2_pp4_a100_pairwise_nvlink_pre8192_pd32_qps2
+    {'wall_s': 7.7, 'e2e_p50': 95.5736, 'ttft_p99': 75.7392, 'tbt_p99': 0.2545}
+[111/240] tp2_pp4_a100_pairwise_nvlink_pre8192_pd32_qps4
+    {'wall_s': 7.8, 'e2e_p50': 118.4123, 'ttft_p99': 103.5563, 'tbt_p99': 0.2535}
+[112/240] tp2_pp4_a100_pairwise_nvlink_pre8192_pd4_qps1
+    {'wall_s': 9.8, 'e2e_p50': 262.5261, 'ttft_p99': 25.7165, 'tbt_p99': 0.1414}
+[113/240] tp2_pp4_a100_pairwise_nvlink_pre8192_pd4_qps2
+    {'wall_s': 9.8, 'e2e_p50': 285.1459, 'ttft_p99': 79.7771, 'tbt_p99': 0.1396}
+[114/240] tp2_pp4_a100_pairwise_nvlink_pre8192_pd4_qps4
+    {'wall_s': 9.9, 'e2e_p50': 297.9787, 'ttft_p99': 107.5424, 'tbt_p99': 0.1393}
+[115/240] tp2_pp4_a100_pairwise_nvlink_pre16384_pd32_qps1
+    {'wall_s': 8.7, 'e2e_p50': 229.4512, 'ttft_p99': 189.1916, 'tbt_p99': 0.2941}
+[116/240] tp2_pp4_a100_pairwise_nvlink_pre16384_pd32_qps2
+    {'wall_s': 9.0, 'e2e_p50': 273.8938, 'ttft_p99': 243.942, 'tbt_p99': 0.2921}
+[117/240] tp2_pp4_a100_pairwise_nvlink_pre16384_pd32_qps4
+    {'wall_s': 8.7, 'e2e_p50': 286.6571, 'ttft_p99': 271.0285, 'tbt_p99': 0.2909}
+[118/240] tp2_pp4_a100_pairwise_nvlink_pre16384_pd4_qps1
+    {'wall_s': 15.7, 'e2e_p50': 611.1069, 'ttft_p99': 552.717, 'tbt_p99': 0.649}
+[119/240] tp2_pp4_a100_pairwise_nvlink_pre16384_pd4_qps2
+    {'wall_s': 14.8, 'e2e_p50': 641.5826, 'ttft_p99': 611.6683, 'tbt_p99': 0.5907}
+[120/240] tp2_pp4_a100_pairwise_nvlink_pre16384_pd4_qps4
+    {'wall_s': 19.3, 'e2e_p50': 663.8668, 'ttft_p99': 645.0859, 'tbt_p99': 0.7437}
+[121/240] tp4_pp2_a100_dgx_pre512_pd32_qps1
+    {'wall_s': 1471.4, 'e2e_p50': 0.8157, 'ttft_p99': 0.2963, 'tbt_p99': 0.0602}
+[122/240] tp4_pp2_a100_dgx_pre512_pd32_qps2
+    {'wall_s': 11.6, 'e2e_p50': 0.9036, 'ttft_p99': 0.3518, 'tbt_p99': 0.0653}
+[123/240] tp4_pp2_a100_dgx_pre512_pd32_qps4
+    {'wall_s': 10.9, 'e2e_p50': 1.0835, 'ttft_p99': 0.3816, 'tbt_p99': 0.0824}
+[124/240] tp4_pp2_a100_dgx_pre512_pd4_qps1
+    {'wall_s': 14.0, 'e2e_p50': 5.8728, 'ttft_p99': 0.3043, 'tbt_p99': 0.0498}
+[125/240] tp4_pp2_a100_dgx_pre512_pd4_qps2
+    {'wall_s': 11.9, 'e2e_p50': 6.4717, 'ttft_p99': 0.3493, 'tbt_p99': 0.0537}
+[126/240] tp4_pp2_a100_dgx_pre512_pd4_qps4
+    {'wall_s': 11.8, 'e2e_p50': 7.7777, 'ttft_p99': 0.3896, 'tbt_p99': 0.0614}
+[127/240] tp4_pp2_a100_dgx_pre512_pd0.25_qps1
+    {'wall_s': 13.8, 'e2e_p50': 94.3135, 'ttft_p99': 0.2965, 'tbt_p99': 0.0474}
+[128/240] tp4_pp2_a100_dgx_pre512_pd0.25_qps2
+    {'wall_s': 13.3, 'e2e_p50': 102.694, 'ttft_p99': 0.4231, 'tbt_p99': 0.0508}
+[129/240] tp4_pp2_a100_dgx_pre512_pd0.25_qps4
+    {'wall_s': 12.9, 'e2e_p50': 104.6103, 'ttft_p99': 0.4573, 'tbt_p99': 0.0525}
+[130/240] tp4_pp2_a100_dgx_pre2048_pd32_qps1
+    {'wall_s': 11.7, 'e2e_p50': 4.1879, 'ttft_p99': 1.0039, 'tbt_p99': 0.0858}
+[131/240] tp4_pp2_a100_dgx_pre2048_pd32_qps2
+    {'wall_s': 11.3, 'e2e_p50': 5.9383, 'ttft_p99': 1.6552, 'tbt_p99': 0.1091}
+[132/240] tp4_pp2_a100_dgx_pre2048_pd32_qps4
+    {'wall_s': 11.1, 'e2e_p50': 11.0399, 'ttft_p99': 5.3987, 'tbt_p99': 0.1278}
+[133/240] tp4_pp2_a100_dgx_pre2048_pd4_qps1
+    {'wall_s': 11.7, 'e2e_p50': 31.5605, 'ttft_p99': 1.0424, 'tbt_p99': 0.0637}
+[134/240] tp4_pp2_a100_dgx_pre2048_pd4_qps2
+    {'wall_s': 11.7, 'e2e_p50': 40.1228, 'ttft_p99': 1.7964, 'tbt_p99': 0.0953}
+[135/240] tp4_pp2_a100_dgx_pre2048_pd4_qps4
+    {'wall_s': 11.5, 'e2e_p50': 41.6067, 'ttft_p99': 7.2058, 'tbt_p99': 0.0944}
+[136/240] tp4_pp2_a100_dgx_pre2048_pd0.25_qps1
+    {'wall_s': 18.6, 'e2e_p50': 561.0557, 'ttft_p99': 1.597, 'tbt_p99': 0.0688}
+[137/240] tp4_pp2_a100_dgx_pre2048_pd0.25_qps2
+    {'wall_s': 18.4, 'e2e_p50': 568.9638, 'ttft_p99': 1.9617, 'tbt_p99': 0.0704}
+[138/240] tp4_pp2_a100_dgx_pre2048_pd0.25_qps4
+    {'wall_s': 18.6, 'e2e_p50': 571.7869, 'ttft_p99': 7.2058, 'tbt_p99': 0.0703}
+[139/240] tp4_pp2_a100_dgx_pre8192_pd32_qps1
+    {'wall_s': 11.7, 'e2e_p50': 52.8181, 'ttft_p99': 32.1752, 'tbt_p99': 0.1406}
+[140/240] tp4_pp2_a100_dgx_pre8192_pd32_qps2
+    {'wall_s': 11.4, 'e2e_p50': 83.3155, 'ttft_p99': 89.6044, 'tbt_p99': 0.1406}
+[141/240] tp4_pp2_a100_dgx_pre8192_pd32_qps4
+    {'wall_s': 11.4, 'e2e_p50': 97.4543, 'ttft_p99': 118.6904, 'tbt_p99': 0.1406}
+[142/240] tp4_pp2_a100_dgx_pre8192_pd4_qps1
+    {'wall_s': 13.1, 'e2e_p50': 223.8745, 'ttft_p99': 48.0981, 'tbt_p99': 0.1174}
+[143/240] tp4_pp2_a100_dgx_pre8192_pd4_qps2
+    {'wall_s': 14.8, 'e2e_p50': 248.9191, 'ttft_p99': 106.2702, 'tbt_p99': 0.1174}
+[144/240] tp4_pp2_a100_dgx_pre8192_pd4_qps4
+    {'wall_s': 13.4, 'e2e_p50': 264.0428, 'ttft_p99': 135.3562, 'tbt_p99': 0.1174}
+[145/240] tp4_pp2_a100_dgx_pre16384_pd32_qps1
+    {'wall_s': 15.4, 'e2e_p50': 188.18, 'ttft_p99': 208.2784, 'tbt_p99': 0.1554}
+[146/240] tp4_pp2_a100_dgx_pre16384_pd32_qps2
+    {'wall_s': 15.7, 'e2e_p50': 216.4575, 'ttft_p99': 266.4505, 'tbt_p99': 0.1554}
+[147/240] tp4_pp2_a100_dgx_pre16384_pd32_qps4
+    {'wall_s': 12.2, 'e2e_p50': 230.5963, 'ttft_p99': 295.5365, 'tbt_p99': 0.1554}
+[148/240] tp4_pp2_a100_dgx_pre16384_pd4_qps1
+    {'wall_s': 16.1, 'e2e_p50': 554.1301, 'ttft_p99': 487.284, 'tbt_p99': 0.277}
+[149/240] tp4_pp2_a100_dgx_pre16384_pd4_qps2
+    {'wall_s': 16.0, 'e2e_p50': 580.9425, 'ttft_p99': 544.1328, 'tbt_p99': 0.277}
+[150/240] tp4_pp2_a100_dgx_pre16384_pd4_qps4
+    {'wall_s': 16.0, 'e2e_p50': 595.0809, 'ttft_p99': 572.5572, 'tbt_p99': 0.277}
+[151/240] tp4_pp2_a100_pairwise_nvlink_pre512_pd32_qps1
+    {'wall_s': 1756.1, 'e2e_p50': 0.9832, 'ttft_p99': 0.545, 'tbt_p99': 0.1}
+[152/240] tp4_pp2_a100_pairwise_nvlink_pre512_pd32_qps2
+    {'wall_s': 11.6, 'e2e_p50': 1.1456, 'ttft_p99': 0.5685, 'tbt_p99': 0.1109}
+[153/240] tp4_pp2_a100_pairwise_nvlink_pre512_pd32_qps4
+    {'wall_s': 11.5, 'e2e_p50': 1.7248, 'ttft_p99': 0.7634, 'tbt_p99': 0.1208}
+[154/240] tp4_pp2_a100_pairwise_nvlink_pre512_pd4_qps1
+    {'wall_s': 11.6, 'e2e_p50': 6.5875, 'ttft_p99': 0.5753, 'tbt_p99': 0.0601}
+[155/240] tp4_pp2_a100_pairwise_nvlink_pre512_pd4_qps2
+    {'wall_s': 11.9, 'e2e_p50': 8.1995, 'ttft_p99': 0.5803, 'tbt_p99': 0.07}
+[156/240] tp4_pp2_a100_pairwise_nvlink_pre512_pd4_qps4
+    {'wall_s': 10.7, 'e2e_p50': 13.3149, 'ttft_p99': 0.7551, 'tbt_p99': 0.1078}
+[157/240] tp4_pp2_a100_pairwise_nvlink_pre512_pd0.25_qps1
+    {'wall_s': 13.2, 'e2e_p50': 122.8109, 'ttft_p99': 0.6046, 'tbt_p99': 0.0611}
+[158/240] tp4_pp2_a100_pairwise_nvlink_pre512_pd0.25_qps2
+    {'wall_s': 13.2, 'e2e_p50': 128.7545, 'ttft_p99': 0.6542, 'tbt_p99': 0.065}
+[159/240] tp4_pp2_a100_pairwise_nvlink_pre512_pd0.25_qps4
+    {'wall_s': 13.2, 'e2e_p50': 129.5399, 'ttft_p99': 0.7768, 'tbt_p99': 0.0661}
+[160/240] tp4_pp2_a100_pairwise_nvlink_pre2048_pd32_qps1
+    {'wall_s': 11.0, 'e2e_p50': 6.3636, 'ttft_p99': 2.409, 'tbt_p99': 0.129}
+[161/240] tp4_pp2_a100_pairwise_nvlink_pre2048_pd32_qps2
+    {'wall_s': 11.1, 'e2e_p50': 14.3767, 'ttft_p99': 3.8246, 'tbt_p99': 0.2053}
+[162/240] tp4_pp2_a100_pairwise_nvlink_pre2048_pd32_qps4
+    {'wall_s': 10.7, 'e2e_p50': 27.2668, 'ttft_p99': 25.6016, 'tbt_p99': 0.2046}
+[163/240] tp4_pp2_a100_pairwise_nvlink_pre2048_pd4_qps1
+    {'wall_s': 11.9, 'e2e_p50': 51.595, 'ttft_p99': 2.4346, 'tbt_p99': 0.1089}
+[164/240] tp4_pp2_a100_pairwise_nvlink_pre2048_pd4_qps2
+    {'wall_s': 12.9, 'e2e_p50': 55.7681, 'ttft_p99': 4.0872, 'tbt_p99': 0.1438}
+[165/240] tp4_pp2_a100_pairwise_nvlink_pre2048_pd4_qps4
+    {'wall_s': 11.4, 'e2e_p50': 66.7021, 'ttft_p99': 28.4776, 'tbt_p99': 0.1402}
+[166/240] tp4_pp2_a100_pairwise_nvlink_pre2048_pd0.25_qps1
+    {'wall_s': 13.7, 'e2e_p50': 662.0673, 'ttft_p99': 2.4471, 'tbt_p99': 0.0824}
+[167/240] tp4_pp2_a100_pairwise_nvlink_pre2048_pd0.25_qps2
+    {'wall_s': 12.2, 'e2e_p50': 663.136, 'ttft_p99': 4.0872, 'tbt_p99': 0.0828}
+[168/240] tp4_pp2_a100_pairwise_nvlink_pre2048_pd0.25_qps4
+    {'wall_s': 12.1, 'e2e_p50': 674.1098, 'ttft_p99': 28.4776, 'tbt_p99': 0.0826}
+[169/240] tp4_pp2_a100_pairwise_nvlink_pre8192_pd32_qps1
+    {'wall_s': 7.7, 'e2e_p50': 117.9294, 'ttft_p99': 113.6343, 'tbt_p99': 0.2184}
+[170/240] tp4_pp2_a100_pairwise_nvlink_pre8192_pd32_qps2
+    {'wall_s': 10.5, 'e2e_p50': 145.5403, 'ttft_p99': 171.8063, 'tbt_p99': 0.2184}
+[171/240] tp4_pp2_a100_pairwise_nvlink_pre8192_pd32_qps4
+    {'wall_s': 11.0, 'e2e_p50': 159.679, 'ttft_p99': 200.8923, 'tbt_p99': 0.2184}
+[172/240] tp4_pp2_a100_pairwise_nvlink_pre8192_pd4_qps1
+    {'wall_s': 13.3, 'e2e_p50': 324.2686, 'ttft_p99': 133.5277, 'tbt_p99': 0.1633}
+[173/240] tp4_pp2_a100_pairwise_nvlink_pre8192_pd4_qps2
+    {'wall_s': 9.6, 'e2e_p50': 350.2629, 'ttft_p99': 191.6998, 'tbt_p99': 0.1633}
+[174/240] tp4_pp2_a100_pairwise_nvlink_pre8192_pd4_qps4
+    {'wall_s': 9.3, 'e2e_p50': 364.4312, 'ttft_p99': 220.7858, 'tbt_p99': 0.1633}
+[175/240] tp4_pp2_a100_pairwise_nvlink_pre16384_pd32_qps1
+    {'wall_s': 9.2, 'e2e_p50': 312.7247, 'ttft_p99': 372.8385, 'tbt_p99': 0.2334}
+[176/240] tp4_pp2_a100_pairwise_nvlink_pre16384_pd32_qps2
+    {'wall_s': 8.4, 'e2e_p50': 341.0022, 'ttft_p99': 431.0105, 'tbt_p99': 0.2334}
+[177/240] tp4_pp2_a100_pairwise_nvlink_pre16384_pd32_qps4
+    {'wall_s': 8.2, 'e2e_p50': 355.141, 'ttft_p99': 460.0965, 'tbt_p99': 0.2334}
+[178/240] tp4_pp2_a100_pairwise_nvlink_pre16384_pd4_qps1
+    {'wall_s': 12.8, 'e2e_p50': 769.4527, 'ttft_p99': 699.9374, 'tbt_p99': 0.3524}
+[179/240] tp4_pp2_a100_pairwise_nvlink_pre16384_pd4_qps2
+    {'wall_s': 13.9, 'e2e_p50': 796.2697, 'ttft_p99': 756.7862, 'tbt_p99': 0.3524}
+[180/240] tp4_pp2_a100_pairwise_nvlink_pre16384_pd4_qps4
+    {'wall_s': 11.7, 'e2e_p50': 810.4084, 'ttft_p99': 785.2106, 'tbt_p99': 0.3524}
+[181/240] tp8_pp1_a100_dgx_pre512_pd32_qps1
+    {'wall_s': 1646.1, 'e2e_p50': 0.5402, 'ttft_p99': 0.2096, 'tbt_p99': 0.0368}
+[182/240] tp8_pp1_a100_dgx_pre512_pd32_qps2
+    {'wall_s': 9.4, 'e2e_p50': 0.5928, 'ttft_p99': 0.2902, 'tbt_p99': 0.0451}
+[183/240] tp8_pp1_a100_dgx_pre512_pd32_qps4
+    {'wall_s': 10.2, 'e2e_p50': 0.7141, 'ttft_p99': 0.4539, 'tbt_p99': 0.0649}
+[184/240] tp8_pp1_a100_dgx_pre512_pd4_qps1
+    {'wall_s': 9.0, 'e2e_p50': 3.7813, 'ttft_p99': 0.2222, 'tbt_p99': 0.0329}
+[185/240] tp8_pp1_a100_dgx_pre512_pd4_qps2
+    {'wall_s': 8.7, 'e2e_p50': 4.1252, 'ttft_p99': 0.2678, 'tbt_p99': 0.0348}
+[186/240] tp8_pp1_a100_dgx_pre512_pd4_qps4
+    {'wall_s': 11.1, 'e2e_p50': 5.0659, 'ttft_p99': 0.447, 'tbt_p99': 0.0412}
+[187/240] tp8_pp1_a100_dgx_pre512_pd0.25_qps1
+    {'wall_s': 9.3, 'e2e_p50': 73.3004, 'ttft_p99': 0.2355, 'tbt_p99': 0.0385}
+[188/240] tp8_pp1_a100_dgx_pre512_pd0.25_qps2
+    {'wall_s': 11.7, 'e2e_p50': 82.4881, 'ttft_p99': 0.3209, 'tbt_p99': 0.0416}
+[189/240] tp8_pp1_a100_dgx_pre512_pd0.25_qps4
+    {'wall_s': 12.8, 'e2e_p50': 89.0099, 'ttft_p99': 0.4459, 'tbt_p99': 0.0438}
+[190/240] tp8_pp1_a100_dgx_pre2048_pd32_qps1
+    {'wall_s': 20.0, 'e2e_p50': 2.8203, 'ttft_p99': 1.5076, 'tbt_p99': 0.0692}
+[191/240] tp8_pp1_a100_dgx_pre2048_pd32_qps2
+    {'wall_s': 11.8, 'e2e_p50': 4.4516, 'ttft_p99': 2.5864, 'tbt_p99': 0.0877}
+[192/240] tp8_pp1_a100_dgx_pre2048_pd32_qps4
+    {'wall_s': 15.1, 'e2e_p50': 15.7014, 'ttft_p99': 17.7843, 'tbt_p99': 0.0877}
+[193/240] tp8_pp1_a100_dgx_pre2048_pd4_qps1
+    {'wall_s': 12.0, 'e2e_p50': 20.5923, 'ttft_p99': 1.5744, 'tbt_p99': 0.0427}
+[194/240] tp8_pp1_a100_dgx_pre2048_pd4_qps2
+    {'wall_s': 15.1, 'e2e_p50': 37.9368, 'ttft_p99': 3.0279, 'tbt_p99': 0.0822}
+[195/240] tp8_pp1_a100_dgx_pre2048_pd4_qps4
+    {'wall_s': 9.3, 'e2e_p50': 48.482, 'ttft_p99': 25.184, 'tbt_p99': 0.0928}
+[196/240] tp8_pp1_a100_dgx_pre2048_pd0.25_qps1
+    {'wall_s': 13.4, 'e2e_p50': 490.0181, 'ttft_p99': 1.7756, 'tbt_p99': 0.0607}
+[197/240] tp8_pp1_a100_dgx_pre2048_pd0.25_qps2
+    {'wall_s': 13.6, 'e2e_p50': 515.6187, 'ttft_p99': 3.0279, 'tbt_p99': 0.0633}
+[198/240] tp8_pp1_a100_dgx_pre2048_pd0.25_qps4
+    {'wall_s': 14.7, 'e2e_p50': 526.3032, 'ttft_p99': 25.3853, 'tbt_p99': 0.0639}
+[199/240] tp8_pp1_a100_dgx_pre8192_pd32_qps1
+    {'wall_s': 9.4, 'e2e_p50': 69.4225, 'ttft_p99': 82.1545, 'tbt_p99': 0.094}
+[200/240] tp8_pp1_a100_dgx_pre8192_pd32_qps2
+    {'wall_s': 9.6, 'e2e_p50': 96.9341, 'ttft_p99': 140.1651, 'tbt_p99': 0.094}
+[201/240] tp8_pp1_a100_dgx_pre8192_pd32_qps4
+    {'wall_s': 10.1, 'e2e_p50': 110.6988, 'ttft_p99': 168.5895, 'tbt_p99': 0.094}
+[202/240] tp8_pp1_a100_dgx_pre8192_pd4_qps1
+    {'wall_s': 9.7, 'e2e_p50': 240.2247, 'ttft_p99': 135.8914, 'tbt_p99': 0.1094}
+[203/240] tp8_pp1_a100_dgx_pre8192_pd4_qps2
+    {'wall_s': 8.9, 'e2e_p50': 270.1867, 'ttft_p99': 192.7885, 'tbt_p99': 0.1094}
+[204/240] tp8_pp1_a100_dgx_pre8192_pd4_qps4
+    {'wall_s': 9.2, 'e2e_p50': 283.8542, 'ttft_p99': 221.2129, 'tbt_p99': 0.1094}
+[205/240] tp8_pp1_a100_dgx_pre16384_pd32_qps1
+    {'wall_s': 10.2, 'e2e_p50': 211.9838, 'ttft_p99': 309.314, 'tbt_p99': 0.1012}
+[206/240] tp8_pp1_a100_dgx_pre16384_pd32_qps2
+    {'wall_s': 13.5, 'e2e_p50': 239.5132, 'ttft_p99': 366.1628, 'tbt_p99': 0.1012}
+[207/240] tp8_pp1_a100_dgx_pre16384_pd32_qps4
+    {'wall_s': 9.5, 'e2e_p50': 253.278, 'ttft_p99': 394.5872, 'tbt_p99': 0.1012}
+[208/240] tp8_pp1_a100_dgx_pre16384_pd4_qps1
+    {'wall_s': 10.2, 'e2e_p50': 611.4585, 'ttft_p99': 535.9209, 'tbt_p99': 0.1406}
+[209/240] tp8_pp1_a100_dgx_pre16384_pd4_qps2
+    {'wall_s': 10.0, 'e2e_p50': 638.988, 'ttft_p99': 592.7697, 'tbt_p99': 0.1406}
+[210/240] tp8_pp1_a100_dgx_pre16384_pd4_qps4
+    {'wall_s': 9.9, 'e2e_p50': 652.7527, 'ttft_p99': 621.1941, 'tbt_p99': 0.1406}
+[211/240] tp8_pp1_a100_pairwise_nvlink_pre512_pd32_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[212/240] tp8_pp1_a100_pairwise_nvlink_pre512_pd32_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[213/240] tp8_pp1_a100_pairwise_nvlink_pre512_pd32_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[214/240] tp8_pp1_a100_pairwise_nvlink_pre512_pd4_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[215/240] tp8_pp1_a100_pairwise_nvlink_pre512_pd4_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[216/240] tp8_pp1_a100_pairwise_nvlink_pre512_pd4_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[217/240] tp8_pp1_a100_pairwise_nvlink_pre512_pd0.25_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[218/240] tp8_pp1_a100_pairwise_nvlink_pre512_pd0.25_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[219/240] tp8_pp1_a100_pairwise_nvlink_pre512_pd0.25_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[220/240] tp8_pp1_a100_pairwise_nvlink_pre2048_pd32_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[221/240] tp8_pp1_a100_pairwise_nvlink_pre2048_pd32_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[222/240] tp8_pp1_a100_pairwise_nvlink_pre2048_pd32_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[223/240] tp8_pp1_a100_pairwise_nvlink_pre2048_pd4_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[224/240] tp8_pp1_a100_pairwise_nvlink_pre2048_pd4_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[225/240] tp8_pp1_a100_pairwise_nvlink_pre2048_pd4_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[226/240] tp8_pp1_a100_pairwise_nvlink_pre2048_pd0.25_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[227/240] tp8_pp1_a100_pairwise_nvlink_pre2048_pd0.25_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[228/240] tp8_pp1_a100_pairwise_nvlink_pre2048_pd0.25_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[229/240] tp8_pp1_a100_pairwise_nvlink_pre8192_pd32_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[230/240] tp8_pp1_a100_pairwise_nvlink_pre8192_pd32_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[231/240] tp8_pp1_a100_pairwise_nvlink_pre8192_pd32_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[232/240] tp8_pp1_a100_pairwise_nvlink_pre8192_pd4_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[233/240] tp8_pp1_a100_pairwise_nvlink_pre8192_pd4_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[234/240] tp8_pp1_a100_pairwise_nvlink_pre8192_pd4_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[235/240] tp8_pp1_a100_pairwise_nvlink_pre16384_pd32_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[236/240] tp8_pp1_a100_pairwise_nvlink_pre16384_pd32_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[237/240] tp8_pp1_a100_pairwise_nvlink_pre16384_pd32_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[238/240] tp8_pp1_a100_pairwise_nvlink_pre16384_pd4_qps1
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[239/240] tp8_pp1_a100_pairwise_nvlink_pre16384_pd4_qps2
+    {'error': 'Exception: Training data for model all_reduce is empty'}
+[240/240] tp8_pp1_a100_pairwise_nvlink_pre16384_pd4_qps4
+    {'error': 'Exception: Training data for model all_reduce is empty'}
