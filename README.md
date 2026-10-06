@@ -21,7 +21,8 @@ profiling data it ships, which is what makes this runnable on a laptop.
 
 On an NVSwitch fabric, TP8/PP1 wins 16 of 24 workloads. It loses at long context:
 TP4/PP2 takes over at prefill 8192 everywhere, and already at 2048 once load reaches
-4 qps.
+4 qps, for the summarisation and chat shapes. Long generation (pd 0.25) stays with
+TP8/PP1 at 2048 even at 4 qps.
 
 Rewire the same 8 GPUs as pairwise NVLink and **the whole crossover shifts one rung
 toward pipeline-parallel.** TP4/PP2 now wins the short-context cells that TP8 used to
@@ -38,10 +39,10 @@ Because the thinner fabric only taxes the configs that actually use it.
 ![topology cost](figs/topology-cost.png)
 
 TP1/PP8 and TP2/PP4 are unchanged, within 3%. A 2-way all-reduce runs over a direct
-NVLink pair either way, so the topology is invisible to them. TP4/PP2 pays 21% at
-prefill 512 and **51% at 8192**, because a 4-way all-reduce on pairwise NVLink has to
-route through peers instead of a switch, and the tensor it is reducing grows with
-context.
+NVLink pair either way, so the topology is invisible to them. TP4/PP2 pays 27% at
+prefill 512, 21% at 2048 and **51% at 8192**, because a 4-way all-reduce on pairwise
+NVLink has to route through peers instead of a switch, and the tensor it is reducing
+grows with context.
 
 So the mechanism is not "pipeline-parallel got better". It is that tensor-parallel got
 more expensive, and it got more expensive fastest where the messages are largest.
@@ -101,6 +102,7 @@ git clone https://github.com/microsoft/vidur ~/code/vidur   # Python 3.10, uv ve
 python3 sweep.py          # ~2 h: four predictor fits, then the grid is seconds per cell
 python3 makespan.py       # derive makespan from the run directories
 python3 analyse.py        # winner table + figs/
+python3 verify.py         # recheck every number in this README against results.jsonl
 ```
 
 The first run at each tensor-parallel size costs about 11 minutes on 8 cores to fit the
