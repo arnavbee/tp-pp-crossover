@@ -51,12 +51,30 @@ def tally(w, net):
 
 
 def ratio(rows, cfg, prefill):
-    """pairwise NVLink / NVSwitch, mean e2e p50 over the cells that ran on both."""
-    d = [r["e2e_p50"] for r in rows if r["net"] == "a100_dgx"
-         and (r["tp"], r["pp"]) == cfg and r["prefill"] == prefill]
-    n = [r["e2e_p50"] for r in rows if r["net"] == "a100_pairwise_nvlink"
-         and (r["tp"], r["pp"]) == cfg and r["prefill"] == prefill]
-    return (sum(n) / len(n)) / (sum(d) / len(d))
+    """pairwise NVLink / NVSwitch, mean e2e p50 over the cells that ran on both.
+
+    Paired explicitly on (pd, qps). Averaging each net over whatever it happens
+    to have would compare two different workload sets the moment one side is
+    missing a cell, and print a plausible percentage for it, so an unpaired
+    cell raises instead.
+    """
+    def by_point(net):
+        return {(r["pd"], r["qps"]): r["e2e_p50"] for r in rows
+                if r["net"] == net and (r["tp"], r["pp"]) == cfg
+                and r["prefill"] == prefill}
+
+    d, n = by_point("a100_dgx"), by_point("a100_pairwise_nvlink")
+    if d.keys() != n.keys():
+        raise SystemExit(
+            f"TP{cfg[0]}/PP{cfg[1]} at prefill {prefill}: cannot ratio nets that did "
+            f"not run the same cells. only on NVSwitch: {sorted(d.keys() - n.keys())}, "
+            f"only on pairwise: {sorted(n.keys() - d.keys())}")
+    if not d:
+        raise SystemExit(
+            f"TP{cfg[0]}/PP{cfg[1]} at prefill {prefill}: no cells on either net")
+
+    pts = sorted(d)
+    return (sum(n[k] for k in pts) / len(pts)) / (sum(d[k] for k in pts) / len(pts))
 
 
 def main():
