@@ -8,7 +8,11 @@ from the sweep without this failing.
     python3 verify.py          # prints each claim, PASS/FAIL, exit 1 on any FAIL
 
 The two rules analyse.py enforces apply here too: winners are computed PER
-NETWORK, and prefill=16384 is excluded (CAVEATS.md #1).
+NETWORK, and prefill=16384 is excluded (CAVEATS.md #1). Before counting a
+single win it also checks the contest each win was drawn from: every point
+inside a net must offer that net's full set of splits, once each, and no cell
+of the winner map may be decided by a tie. A dropped cell would otherwise
+shift every tally silently, which is the mistake CAVEATS.md #5 is about.
 """
 import json
 import sys
@@ -18,6 +22,13 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 IN_RANGE = [512, 2048, 8192]          # 16384 excluded, see CAVEATS.md #1
 ALL_REDUCE_ERR = "Exception: Training data for model all_reduce is empty"
+
+# CAVEATS.md #5: the two nets do not offer the same splits, so a winner tally is
+# only comparable if every point inside a net ran the same contest.
+EXPECTED_FIELD = {
+    "a100_dgx": {(8, 1), (4, 2), (2, 4), (1, 8)},
+    "a100_pairwise_nvlink": {(4, 2), (2, 4), (1, 8)},
+}
 
 fails = 0
 
@@ -33,13 +44,37 @@ def near(a, b, tol):
     return abs(a - b) <= tol
 
 
-def winners(rows, metric="e2e_p50"):
-    """Best (tp, pp) per (net, prefill, pd, qps) workload point."""
+def by_point(rows):
+    """Rows grouped by (net, prefill, pd, qps) workload point."""
     cells = defaultdict(list)
     for r in rows:
         cells[(r["net"], r["prefill"], r["pd"], r["qps"])].append(r)
-    return {k: (min(v, key=lambda r: r[metric])["tp"],
-                min(v, key=lambda r: r[metric])["pp"]) for k, v in cells.items()}
+    return cells
+
+
+def winners(cells, metric="e2e_p50"):
+    """Best (tp, pp) per workload point."""
+    out = {}
+    for k, v in cells.items():
+        best = min(v, key=lambda r: r[metric])
+        out[k] = (best["tp"], best["pp"])
+    return out
+
+
+def margins(cells, metric="e2e_p50"):
+    """(gap to the runner-up, point, runner-up split) per workload point.
+
+    A winner map is only worth reading if its cells are won by more than noise.
+    Vidur is deterministic here, so a zero gap does not mean a close race: it
+    means two splits scored identically and min() kept whichever line the file
+    happened to list first. That is a coin toss drawn as a result.
+    """
+    out = []
+    for k, v in cells.items():
+        best, second = sorted(v, key=lambda r: r[metric])[:2]
+        out.append(((second[metric] - best[metric]) / best[metric],
+                    k, (second["tp"], second["pp"])))
+    return out
 
 
 def tally(w, net):
@@ -82,7 +117,8 @@ def main():
     errs = [r for r in rows if r.get("error")]
     ok = [r for r in rows if not r.get("error")]
     inr = [r for r in ok if r["prefill"] in IN_RANGE]
-    w = winners(inr)
+    cells = by_point(inr)
+    w = winners(cells)
 
     print("Cell counts")
     check("240 cells swept, 210 ran",
@@ -103,6 +139,21 @@ def main():
     check(f"every failure is {ALL_REDUCE_ERR!r}",
           {r["error"] for r in errs} == {ALL_REDUCE_ERR},
           sorted({r["error"] for r in errs}))
+
+    print("\nEvery workload point ran a complete contest")
+    present = {k: {(r["tp"], r["pp"]) for r in v} for k, v in cells.items()}
+    short = {k: sorted(f) for k, f in present.items() if f != EXPECTED_FIELD[k[0]]}
+    check("4 splits at every NVSwitch point, 3 at every pairwise one (CAVEATS.md #5)",
+          not short, "every point" if not short else short)
+    dups = {k: sorted((r["tp"], r["pp"]) for r in v) for k, v in cells.items()
+            if len(present[k]) != len(v)}
+    check("and no point scores the same split twice",
+          not dups, "none" if not dups else dups)
+    gap, point, up = min(margins(cells))
+    check("no cell of the winner map is decided by a tie",
+          gap > 0,
+          f"narrowest win is {gap * 100:.2f}% at net={point[0]} prefill={point[1]} "
+          f"pd={point[2]} qps={point[3]}, over TP{up[0]}/PP{up[1]}")
 
     print("\nNVSwitch (DGX): TP8/PP1 wins, except at long context")
     td = tally(w, "a100_dgx")
