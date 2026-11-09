@@ -84,3 +84,36 @@ answer. `analyse.py` computes winners per network and refuses to pool.
   128 rows have a blank `request_e2e_time`. The accumulator started at `0.0`, so
   "nothing finished" came out looking like the fastest configuration on the board.
   Both scripts now return `None`. `makespan.jsonl` regenerated: 282 cells, 12 null.
+
+## 6. The grid is not full-factorial, and the tally is not uniform over context
+
+The setup multiplies out to **288** cells (4 splits x 2 nets x 4 prefills x 3 shapes x
+3 arrival rates). Only **240** were swept. `feasible()` in `sweep.py` drops any
+(prefill, pd) pair whose `prefill + decode + 16` exceeds `MAX_TOKENS`, because such a
+cell dies inside Vidur's lookup table rather than returning a wrong answer. Two pairs
+fail that test: **prefill 8192 at pd 0.25** needs 40,976 tokens, and **16384 at pd 0.25**
+needs 81,936. That is 2 pairs x 4 splits x 2 nets x 3 arrival rates = **48 cells that
+never ran**, which is why 288 - 48 = 240.
+
+Confusingly there are two different 48s here: these, and the 48 extrapolated
+prefill=16384 cells excluded by item 1. They are not the same cells.
+
+The consequence for the winner tallies is that **the context axis is unbalanced**.
+In range, each net has 9 workload points at prefill 512, 9 at 2048 and only **6 at
+8192** — pd 0.25, the long-generation shape, does not exist at 8192. So:
+
+- "TP4/PP2 takes every point at prefill 8192" is a win over **6** points, not 9, while
+  "TP8/PP1 wins 16 of 24" is drawn from 9 + 9 + 6.
+- The one shape that stays with tensor-parallel longest at 2048 (pd 0.25, which keeps
+  TP8/PP1 even at 4 qps) is **absent from the rung where the crossover is claimed**.
+  So the crossover at 8192 is established for summarisation and chat only.
+
+This does not change the direction of the result — the topology shift in item 5 is
+visible in the 512 and 2048 rungs, which are complete — but it does bound how the
+8192 column of the winner map may be read. `verify.py` asserts the point set is exactly
+what `feasible()` allows and that the 9/9/6 shape holds, so a cell lost for some other
+reason cannot hide inside the expected gap.
+
+Closing it means raising `MAX_TOKENS` to ~41k and reprofiling, which item 1 already
+rules out for a different reason: the attention profile tops out at 16,320 tokens, so
+those cells would be extrapolated even if they ran.

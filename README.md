@@ -10,8 +10,10 @@ I swept it.
 
 **Setup:** Llama-3-70B on 8 A100s, simulated with
 [Vidur](https://github.com/microsoft/vidur) (MLSys'24, Microsoft Research India).
-240 cells: 4 parallelism splits x 2 interconnect topologies x 4 context lengths x
-3 prefill:decode shapes x 3 arrival rates. 210 ran, 168 are in range and reported here.
+4 parallelism splits x 2 interconnect topologies x 4 context lengths x 3
+prefill:decode shapes x 3 arrival rates is 288 cells. 48 of them ask the execution-time
+predictor for more tokens than it can answer and never ran, so 240 were swept, 210 ran,
+and 168 are in range and reported here.
 No GPUs were used. Vidur predicts execution time from a random forest fitted to
 profiling data it ships, which is what makes this runnable on a laptop.
 
@@ -20,9 +22,11 @@ profiling data it ships, which is what makes this runnable on a laptop.
 **The crossover is real, and the interconnect moves it.**
 
 On an NVSwitch fabric, TP8/PP1 wins 16 of 24 workloads. It loses at long context:
-TP4/PP2 takes over at prefill 8192 everywhere, and already at 2048 once load reaches
-4 qps, for the summarisation and chat shapes. Long generation (pd 0.25) stays with
-TP8/PP1 at 2048 even at 4 qps.
+TP4/PP2 takes over at every shape that runs at prefill 8192, and already at 2048 once
+load reaches 4 qps, for the summarisation and chat shapes. Long generation (pd 0.25)
+stays with TP8/PP1 at 2048 even at 4 qps, and is the shape that cannot run at 8192 at
+all, so that rung is 6 workload points rather than 9
+([CAVEATS.md](CAVEATS.md) #6).
 
 Rewire the same 8 GPUs as pairwise NVLink and **the whole crossover shifts one rung
 toward pipeline-parallel.** TP4/PP2 now wins the short-context cells that TP8 used to
@@ -76,7 +80,12 @@ Written out in full in [CAVEATS.md](CAVEATS.md). The short version:
    configs, not a prediction of production latency.
 3. **p99 over 128 requests is barely a p99.** The crossover claim uses p50. Treat every
    p99 here as directional.
-4. **It is a simulator.** Vidur is validated by its authors and this is their own tool,
+4. **The context axis is unbalanced.** Long generation at 8192 would need 40,976
+   tokens and the predictor stops at 32,768, so those cells never ran. In range that
+   leaves 6 workload points at prefill 8192 against 9 at 512 and 9 at 2048, with the
+   long-generation shape the one absent. The crossover at 8192 is established for
+   summarisation and chat, not for every shape.
+5. **It is a simulator.** Vidur is validated by its authors and this is their own tool,
    but no line of this touched real hardware. The obvious next question is whether the
    crossover survives at load/store granularity in something like ASTRA-sim, or on a
    rented A100 node for the handful of cells near the flip.

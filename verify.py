@@ -10,14 +10,29 @@ from the sweep without this failing.
 The two rules analyse.py enforces apply here too: winners are computed PER
 NETWORK, and prefill=16384 is excluded (CAVEATS.md #1). Before counting a
 single win it also checks the contest each win was drawn from: every point
-inside a net must offer that net's full set of splits, once each, and no cell
-of the winner map may be decided by a tie. A dropped cell would otherwise
-shift every tally silently, which is the mistake CAVEATS.md #5 is about.
+inside a net must offer that net's full set of splits, once each, the set of
+points must be exactly the one sweep.py's feasible() allows, and no cell of
+the winner map may be decided by a tie. A dropped cell would otherwise shift
+every tally silently, which is the mistake CAVEATS.md #5 is about.
+
+The grid is NOT full-factorial and the tally is not uniform over the context
+axis: 48 of the 288 cells ask the predictor for more tokens than it can
+answer, so prefill 8192 carries 6 workload points where 512 and 2048 carry 9
+(CAVEATS.md #6). That imbalance is asserted here rather than left for a
+reader to discover, because "wins every point at 8192" is drawn from a
+smaller contest than "wins every point at 512".
 """
 import json
 import sys
 from collections import defaultdict
 from pathlib import Path
+
+# The grid definition and the feasibility rule, imported rather than restated: a
+# second copy of feasible() here would let the sweep's shape and this script's idea
+# of it drift apart, which is exactly the class of error this file exists to catch.
+# sweep.py is import-safe (stdlib only, everything behind __main__) and importing it
+# does not touch Vidur.
+from sweep import CONFIGS, NETWORKS, PD_RATIOS, PREFILLS, QPS, feasible
 
 ROOT = Path(__file__).parent
 IN_RANGE = [512, 2048, 8192]          # 16384 excluded, see CAVEATS.md #1
@@ -140,6 +155,32 @@ def main():
           {r["error"] for r in errs} == {ALL_REDUCE_ERR},
           sorted({r["error"] for r in errs}))
 
+    print("\nThe grid is the one feasible() allows, and it is not full-factorial")
+    full = (len(CONFIGS) * len(NETWORKS) * len(PREFILLS) * len(PD_RATIOS)
+            * len(QPS))
+    check("48 of the 288 full-factorial cells never ran: past MAX_TOKENS "
+          "(CAVEATS.md #6)",
+          full == 288 and full - len(rows) == 48,
+          f"{full} full factorial, {len(rows)} swept, {full - len(rows)} dropped")
+    want = {(net, pre, pd, q) for net in EXPECTED_FIELD for pre in IN_RANGE
+            for pd in PD_RATIOS for q in QPS if feasible(pre, pd)}
+    pts = set(cells)
+    check("the in-range points are exactly the feasible (prefill, pd) grid",
+          pts == want,
+          "exactly" if pts == want else
+          f"missing {sorted(want - pts)}, unexpected {sorted(pts - want)}")
+    per = defaultdict(lambda: defaultdict(int))
+    for net, pre, _pd, _q in pts:
+        per[net][pre] += 1
+    shape = {512: 9, 2048: 9, 8192: 6}
+    check("so each net's 24 points are 9 at 512, 9 at 2048 and only 6 at 8192",
+          all(dict(v) == shape for v in per.values()) and len(per) == 2,
+          {n: dict(sorted(v.items())) for n, v in sorted(per.items())})
+    missing8192 = sorted(set(PD_RATIOS) - {pd for _n, pre, pd, _q in pts
+                                          if pre == 8192})
+    check("and the shape missing at 8192 is pd 0.25, the long-generation one",
+          missing8192 == [0.25], missing8192)
+
     print("\nEvery workload point ran a complete contest")
     present = {k: {(r["tp"], r["pp"]) for r in v} for k, v in cells.items()}
     short = {k: sorted(f) for k, f in present.items() if f != EXPECTED_FIELD[k[0]]}
@@ -161,8 +202,10 @@ def main():
           td[(8, 1)] == 16 and sum(td.values()) == 24,
           f"TP8/PP1 {td[(8, 1)]}/{sum(td.values())}, TP4/PP2 {td[(4, 2)]}")
     at8192 = {cfg for k, cfg in w.items() if k[0] == "a100_dgx" and k[1] == 8192}
-    check("TP4/PP2 takes every point at prefill 8192",
-          at8192 == {(4, 2)}, sorted(at8192))
+    check("TP4/PP2 takes every point that runs at prefill 8192 (6, not 9)",
+          at8192 == {(4, 2)} and len([k for k in w if k[0] == "a100_dgx"
+                                      and k[1] == 8192]) == 6,
+          sorted(at8192))
     at2048_4qps = {k[2]: cfg for k, cfg in w.items()
                    if k[0] == "a100_dgx" and k[1] == 2048 and k[3] == 4}
     check("at 2048 and 4 qps it already wins pd 32 and pd 4, but not pd 0.25",
@@ -177,8 +220,11 @@ def main():
           f"TP4/PP2 {tp[(4, 2)]}, TP2/PP4 {tp[(2, 4)]}, of {sum(tp.values())}")
     pw8192 = {cfg for k, cfg in w.items()
               if k[0] == "a100_pairwise_nvlink" and k[1] == 8192}
-    check("TP2/PP4 takes every point at prefill 8192",
-          pw8192 == {(2, 4)}, sorted(pw8192))
+    check("TP2/PP4 takes every point that runs at prefill 8192 (6, not 9)",
+          pw8192 == {(2, 4)} and len([k for k in w
+                                      if k[0] == "a100_pairwise_nvlink"
+                                      and k[1] == 8192]) == 6,
+          sorted(pw8192))
 
     print("\nWhat the thinner fabric costs")
     for cfg in [(1, 8), (2, 4)]:
