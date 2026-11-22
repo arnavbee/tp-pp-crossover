@@ -1,0 +1,24 @@
+name: verify
+
+# verify.py recomputes every number the README claims straight from
+# results.jsonl. Running it here is what stops a silent drift between the
+# committed sweep and the prose: a push that edits either one and breaks a
+# claim fails the check instead of sitting in the repo looking fine.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      # No install step on purpose. verify.py is stdlib only and imports
+      # sweep.py for the grid definition without touching Vidur, so the whole
+      # check runs on a bare interpreter in a couple of seconds.
+      - run: python3 verify.py

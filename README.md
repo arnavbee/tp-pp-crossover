@@ -114,6 +114,11 @@ python3 analyse.py        # winner table + figs/
 python3 verify.py         # recheck every number in this README against results.jsonl
 ```
 
+Only the last of those four needs no Vidur and no install: `verify.py` is stdlib only,
+so CI runs it on every push ([.github/workflows/verify.yml](.github/workflows/verify.yml)).
+If an edit to `results.jsonl` or to a number in this README breaks a claim, the check
+fails rather than leaving the two quietly disagreeing.
+
 The first run at each tensor-parallel size costs about 11 minutes on 8 cores to fit the
 predictor. Every later run at that size is seconds, so the grid is cheap once the four
 fits are paid for. `MAX_TOKENS` is part of the predictor cache key, so changing it
